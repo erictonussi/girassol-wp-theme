@@ -1,7 +1,64 @@
-.banner .nav li {
-  @extend .nav-item;
+@include bg-variant('.bg-orange', #e1782c);
+
+$baseline: 20px;
+
+@include media-breakpoint-up(md) {
+  .navbar {
+    padding-top: ($baseline+8px);
+
+    .navbar-brand {
+      position: relative;
+      top: -$baseline;
+      margin-bottom: -$baseline;
+    }
+  }
 }
 
-.banner .nav a {
-  @extend .nav-link;
+.navbar-brand {
+  margin-right: 0;
+
+  @include media-breakpoint-down(sm) {
+    img {
+      height: 50px;
+    }
+  }
+}
+
+.navbar-nav.-primary {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media-breakpoint-up(md) {
+    margin: 0 4%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 7%;
+  }
+
+  .nav-link {
+    font-family: Muli;
+    // color: #1b1b1b;
+    font-size: 19px;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.navbar-nav.-social {
+  flex-direction: row;
+  justify-content: space-around;
+
+  // .nav-item {
+  //   display: inline-block;
+  // }
+
+  .nav-link {
+    font-size: 36px;
+
+    i {
+      vertical-align: sub;
+    }
+  }
 }

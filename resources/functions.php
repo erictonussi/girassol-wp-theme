@@ -90,3 +90,13 @@ Container::getInstance()
             'view' => require dirname(__DIR__).'/config/view.php',
         ]);
     }, true);
+
+// Register Custom Navigation Walker
+require_once('class-wp-bootstrap-navwalker.php');
+
+function wpb_add_google_fonts() {
+    wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Muli:400,600,700,800', false );
+    wp_enqueue_style( 'icon-fonts', 'https://file.myfontastic.com/yvyEpy3bCUGK6Fi8iMHGFZ/icons.css', false );
+}
+
+add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
