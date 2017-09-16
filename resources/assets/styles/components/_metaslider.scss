@@ -1,0 +1,19 @@
+.home {
+  .metaslider .flexslider {
+    margin-bottom: 0;
+  }
+
+  .flex-control-nav {
+    bottom: 20px;
+    z-index: 100;
+  }
+
+  .flex-control-paging li a {
+    background: #fff;
+
+    &:not(.flex-active):hover {
+      // opacity: 0.8;
+      background: #ddd;
+    }
+  }
+}

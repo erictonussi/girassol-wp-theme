@@ -5,7 +5,7 @@
     {!! do_shortcode("[metaslider id=36]"); !!}
   </section>
 
-  <section class="cardapio">
+  <section id="cardapio" class="cardapio">
     <div class="container">
       <h2 class="raminho text-center">Cardápio</h2>
       <div class="d-flex justify-content-center justify-content-md-between flex-wrap">
@@ -21,20 +21,22 @@
           <!-- <div class=""> -->
             <a class="menu-type" href="#">
               <?php the_term_thumbnail( $menu_type->term_id, $size = 'medium', 'class=thumbnail' ) ?>
-              <!-- <h4 class="title"><?php echo $menu_type->name; ?></h4> -->
               <h4 class="title"><?php echo $menu_type->description; ?></h4>
             </a>
-            <!-- <div class="menu-type">
-              <h4 class="title"><?php echo $menu_type->name; ?></h4>
-            </div>
-            <div class="menu-type">
-              <h4 class="title"><?php echo $menu_type->name; ?></h4>
-            </div> -->
-          <!-- </div> -->
         <?php } ?>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section id="quem-somos" class="quem-somos">
+    <div class="container">
+      <div class="section-content">
+        <?php $quem_somos = get_page_by_path('quem-somos');?>
+        <h2 class="raminho-p text-center">{!! get_the_title( $quem_somos ); !!}</h2>
+        {!! apply_filters('the_content', $quem_somos->post_content); !!}
+      </div>
+    </div>
+  </section>
 @endsection
 
 @section('content')

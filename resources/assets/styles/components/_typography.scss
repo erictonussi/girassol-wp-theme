@@ -1,0 +1,33 @@
+.raminho {
+  &::before,
+  &::after {
+    position: relative;
+    top: 20px;
+    margin: 0 10px;
+  }
+
+  &::before {
+    content: url(../images/raminho-e.png);
+  }
+
+  &::after {
+    content: url(../images/raminho-d.png);
+  }
+}
+
+.raminho-p {
+  &::before,
+  &::after {
+    position: relative;
+    top: 10px;
+    margin: 0 10px;
+  }
+
+  &::before {
+    content: url(../images/raminho-p-e.png);
+  }
+
+  &::after {
+    content: url(../images/raminho-p-d.png);
+  }
+}

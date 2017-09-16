@@ -1,0 +1,20 @@
+.home {
+  .quem-somos {
+    background: url(../images/quem_somos_bg.jpg);
+    background-position: center top;
+    font-size: 18px;
+    line-height: 1;
+    height: 597px;
+
+    .section-content {
+      // width: 50%;
+      padding-left: 50%;
+      padding-top: 70px;
+    }
+
+    h2 {
+      white-space: nowrap;
+      margin-bottom: 50px;
+    }
+  }
+}
