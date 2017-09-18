@@ -5,7 +5,7 @@
     {!! do_shortcode("[metaslider id=36]"); !!}
   </section>
 
-  <section id="cardapio" class="cardapio">
+  <section id="cardapio" class="cardapio-section">
     <div class="container">
       <h2 class="raminho text-center">Cardápio</h2>
       <div class="d-flex justify-content-center justify-content-md-between flex-wrap">
@@ -18,12 +18,16 @@
         ));
 
         foreach ( $menu_types as $menu_type ) {?>
-          <!-- <div class=""> -->
-            <a class="menu-type" href="#">
-              <?php the_term_thumbnail( $menu_type->term_id, $size = 'medium', 'class=thumbnail' ) ?>
-              <h4 class="title"><?php echo $menu_type->description; ?></h4>
-            </a>
+          <a href="{!!get_link_by_slug('cardapio', 'page')!!}#{!!$menu_type->slug!!}" class="menu-type">
+            <?php the_term_thumbnail( $menu_type->term_id, $size = 'medium', 'class=thumbnail' ) ?>
+            <h4 class="title"><?php echo $menu_type->description; ?></h4>
+          </a>
         <?php } ?>
+        <a href="{!!get_link_by_slug('monte', 'page')!!}" class="menu-type">
+          <img src="<?php echo get_bloginfo('template_url') ?>/assets/images/monte.jpg" class="thumbnail" alt="">
+          <h4 class="title">Monte seu <br>kit festa</h4>
+        </a>
+        <a href="{!!get_link_by_slug('cardapio', 'page')!!}" class="btn btn-lg btn-outline-light">ver cardápio completo <i class="arrow-right"></i></a>
       </div>
     </div>
   </section>

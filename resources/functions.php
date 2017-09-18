@@ -100,3 +100,10 @@ function wpb_add_google_fonts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
+function get_link_by_slug($slug, $type = 'post'){
+  $post = get_page_by_path($slug, OBJECT, $type);
+  // echo get_permalink($post);
+  // var_dump($post); die();
+  return get_permalink($post);
+}
