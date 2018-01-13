@@ -18,13 +18,15 @@
         ));
 
         foreach ( $menu_types as $menu_type ) {?>
-          <a href="{!!get_link_by_slug('cardapio', 'page')!!}#{!!$menu_type->slug!!}" class="menu-type">
-            <?php the_term_thumbnail( $menu_type->term_id, $size = 'medium', 'class=thumbnail' ) ?>
-            <h4 class="title"><?php echo $menu_type->description; ?></h4>
-          </a>
+          <?php if (has_term_thumbnail($menu_type->term_id) ) { ?>
+            <a href="{!!get_link_by_slug('cardapio', 'page')!!}#{!!$menu_type->slug!!}" class="menu-type">
+              <?php the_term_thumbnail( $menu_type->term_id, $size = 'medium', 'class=thumbnail' ) ?>
+              <h4 class="title"><?php echo $menu_type->description; ?></h4>
+            </a>
+          <?php } ?>
         <?php } ?>
         <a href="{!!get_link_by_slug('monte', 'page')!!}" class="menu-type">
-          <img src="<?php echo get_bloginfo('template_url') ?>/assets/images/monte.jpg" class="thumbnail" alt="">
+          <img src="@asset('images/monte.jpg')" class="thumbnail" alt="">
           <h4 class="title">Monte seu <br>kit festa</h4>
         </a>
         <a href="{!!get_link_by_slug('cardapio', 'page')!!}" class="btn btn-lg btn-outline-light">ver cardápio completo <i class="arrow-right"></i></a>
