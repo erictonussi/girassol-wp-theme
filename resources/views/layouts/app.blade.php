@@ -7,7 +7,7 @@
 
     @yield('top-content')
 
-    <div class="wrap container" role="document">
+    <div class="wrap" role="document">
       <div class="content">
         <main class="main">
           @yield('content')

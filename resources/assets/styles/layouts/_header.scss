@@ -64,5 +64,42 @@ $baseline: 20px;
 }
 
 .page-header {
-  margin-bottom: 50px 0;
+  margin-bottom: 50px;
+  // position: relative;
+  overflow: hidden;
+
+  h2 {
+    color: #2b2b2b;
+    font-size: 50px;
+    line-height: 160px;
+    padding-top: 20px;
+    // font-weight: 700;
+    // text-align: center;
+    margin-left: calc(25% + 1.4rem);
+    // padding-left: ;
+    position: relative;
+    // display: inline-block;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 100%;
+      position: absolute;
+      background: url(../images/header-pattern.png);
+      // margin-left: -150px;
+      width: 100vw;
+      top: 0;
+    }
+
+    &::before {
+      margin-right: 140px;
+      right: 100%;
+      background-position: right -40px;
+    }
+
+    &::after {
+      margin-left: 140px;
+      background-position-y: -35px;
+    }
+  }
 }

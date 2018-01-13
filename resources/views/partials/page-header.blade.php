@@ -1,3 +1,5 @@
 <div class="page-header">
-  <h2 class="raminho text-center">{!! App::title() !!}</h2>
+  <div class="container">
+    <h2>{!! App::title() !!}</h2>
+  </div>
 </div>
