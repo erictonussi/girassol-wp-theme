@@ -9,7 +9,7 @@
     ]
   },
   "publicPath": "/wp-content/themes/girassol",
-  "devUrl": "http://example.dev",
+  "devUrl": "http://girassol.local",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [

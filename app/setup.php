@@ -126,3 +126,6 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+add_image_size('item-thumb', 255, 255, true);
+set_post_thumbnail_size( 300, 300, true );

@@ -25,7 +25,7 @@
             </a>
           <?php } ?>
         <?php } ?>
-        <a href="{!!get_link_by_slug('monte', 'page')!!}" class="menu-type">
+        <a href="{!!get_link_by_slug('realizar-pedido', 'page')!!}" class="menu-type">
           <img src="@asset('images/monte.jpg')" class="thumbnail" alt="">
           <h4 class="title">Monte seu <br>kit festa</h4>
         </a>

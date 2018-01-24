@@ -1,0 +1,36 @@
+.realizar-pedido {
+  .menu {
+    border: 1px solid #e1782c;
+    padding: 20px 10px 10px;
+    text-align: right;
+    color: #1b1b1b;
+    font-size: 19px;
+    font-weight: 600;
+    width: 200px;
+
+    > div {
+      padding: 15px;
+    }
+
+    hr {
+      border-color: #e1782c;
+    }
+
+    p {
+      font-size: 22px;
+      margin-bottom: 0;
+    }
+
+    strong {
+      font-size: 25px;
+    }
+  }
+
+  .content-page {
+    p {
+      color: #1b1b1b;
+      font-size: 19px;
+      font-weight: 400;
+    }
+  }
+}
