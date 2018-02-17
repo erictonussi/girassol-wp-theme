@@ -5,6 +5,7 @@
     text-align: right;
     color: #1b1b1b;
     font-size: 19px;
+    line-height: 1.4;
     font-weight: 600;
     width: 200px;
 
@@ -13,11 +14,16 @@
     }
 
     hr {
-      border-color: #e1782c;
+      border-color: #efbf9a;
+      margin: 5px 0;
     }
 
     p {
       font-size: 22px;
+      margin-bottom: 0;
+    }
+
+    label {
       margin-bottom: 0;
     }
 
@@ -27,10 +33,66 @@
   }
 
   .content-page {
+    margin-bottom: 50px;
+
     p {
       color: #1b1b1b;
       font-size: 19px;
-      font-weight: 400;
+      font-weight: 600;
+    }
+  }
+
+  .table-pedidos {
+    // border: 3px solid red;
+    background-color: #ebc9b0;
+    font-size: 17px;
+    font-weight: 600;
+
+    select {
+      text-align-last: center;
+      text-align: center;
+      background: none;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    thead {
+      background-color: #e1782c;
+      color: #1b1b1b;
+      font-size: 19px;
+      // font-weight: 700;
+
+      th {
+        border: 0;
+        padding: 15px 30px;
+
+        &:nth-child(2) {
+          background-color: #e59f30;
+        }
+
+        &:nth-child(3) {
+          background-color: #c66016;
+        }
+      }
+    }
+
+    tbody {
+      tr:first-child td {
+        border-top: 0;
+      }
+
+      td {
+        border-top-color: #fff;
+        vertical-align: middle;
+      }
+    }
+
+    tfoot {
+      td,
+      th {
+        border-top-color: #fff;
+        padding: 16px;
+      }
     }
   }
 }

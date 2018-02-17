@@ -29,15 +29,30 @@ export default {
 
     /*global angular*/
     angular.module('Pedido', ['angular.filter'])
-      .controller('TodoListController', function ($scope, $http) {
-        $scope.user = {
-          yourName: 'Eric',
-        };
-        $http.get('/wp-admin/admin-ajax.php?action=restaurant_menu')
-          .then(function (result) {
-            $scope.menu = result.data;
-          })
-      });
+      .controller('TodoListController', ['$scope', '$http', function ($scope, $http) {
+          $scope.categorias = [
+            {
+              id: 'salgados-de-festa',
+              title: 'Escolha os SALGADOS',
+            },
+            {
+              id: 'doces-de-festa',
+              title: 'Escolha os DOCES',
+            },
+            {
+              id: 'tortas-doces',
+              title: 'Escolha as TORTAS DOCES',
+            },
+            {
+              id: 'tortas-salgadas',
+              title: 'Escolha os TORTAS SALGADAS',
+            },
+          ];
+          $http.get('/wp-admin/admin-ajax.php?action=restaurant_menu')
+            .then(function (result) {
+              $scope.menu = result.data;
+            })
+        }]);
 
     angular.bootstrap(document, ['Pedido']);
 
