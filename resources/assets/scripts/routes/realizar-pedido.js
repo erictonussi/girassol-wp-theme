@@ -28,26 +28,42 @@ export default {
     });
 
     /*global angular*/
-    angular.module('Pedido', ['angular.filter'])
+    angular.module('Pedido', ['angular.filter', 'ngMask'])
       .controller('TodoListController', ['$scope', '$http', function ($scope, $http) {
+
           $scope.categorias = [
             {
               id: 'salgados-de-festa',
               title: 'Escolha os SALGADOS',
+              pedidos: [{produto: {price: 0}}],
             },
             {
               id: 'doces-de-festa',
               title: 'Escolha os DOCES',
+              pedidos: [{produto: {price: 0}}],
             },
             {
               id: 'tortas-doces',
               title: 'Escolha as TORTAS DOCES',
+              pedidos: [{produto: {price: 0}}],
             },
             {
               id: 'tortas-salgadas',
               title: 'Escolha os TORTAS SALGADAS',
+              pedidos: [{produto: {price: 0}}],
             },
           ];
+
+          $scope.sendContactForm = function () {
+            $http.post('/wp-admin/admin-ajax.php?action=contact_form', {
+              categorias: $scope.categorias,
+              total: $scope.total,
+              contato: $scope.contact,
+            });
+              // .then(function (result) {
+              //   // $scope.menu = result.data;
+              // });
+          }
           $http.get('/wp-admin/admin-ajax.php?action=restaurant_menu')
             .then(function (result) {
               $scope.menu = result.data;

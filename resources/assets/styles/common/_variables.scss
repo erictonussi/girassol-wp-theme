@@ -7,7 +7,7 @@ $font-family-sans-serif: 'Muli', sans-serif;
 $h1-font-size: 3.5rem !default;
 $h2-font-size: 3rem !default;
 $h3-font-size: 2.5rem !default;
-$h4-font-size: 2rem !default;
+$h4-font-size: 30px; //2rem !default;
 $h5-font-size: 1.5rem !default;
 $h6-font-size: 1rem !default;
 
@@ -17,3 +17,6 @@ $body-color:    #2b2b2b;
 
 $border-radius: 0;
 $border-radius-lg: 0;
+
+$input-border-width: 2px;
+$input-border-color: #393939;

@@ -107,3 +107,44 @@ function get_link_by_slug($slug, $type = 'post'){
   // var_dump($post); die();
   return get_permalink($post);
 }
+
+add_action( 'wp_ajax_contact_form', 'contact_form' );
+add_action( 'wp_ajax_nopriv_contact_form', 'contact_form' );
+
+function contact_form () {
+    $rawPostBody = file_get_contents('php://input');
+    $postData = json_decode($rawPostBody, true);
+
+    ob_start(); ?>
+    <h3>Pedidos | Total: R$<?php echo $postData['total'] ?></h3>
+    <?php foreach ($postData['categorias'] as $key => $categoria): ?>
+        <h6><?php echo $categoria['title'] ?></h6>
+        <div>
+            <?php foreach ($categoria['pedidos'] as $pedido):
+                if (!$pedido['qtd']) continue;?>
+                <p>
+                    <?php echo $pedido['produto']['product']['title'] ?> -
+                    <?php echo $pedido['produto']['product']['prices'][0]['title'] ?>
+                    | <?php echo $pedido['qtd'] ?> x
+                      R$<?php echo $pedido['produto']['price'] ?> =
+                      R$<?php echo $pedido['total'] ?>
+                </p>
+            <?php endforeach ?>
+        </div>
+    <?php endforeach ?>
+    <?php
+    $to = "asadkhan6164995@gmail.com";
+    $subject = "Donation";
+    $message = ob_get_contents(true);
+    ob_end_clean();
+    // $message = "message message message message message message message ";
+
+    if ( wp_mail($to, $subject, $message) ){
+        echo "mail_sent";
+    } else {
+        echo "mail_not_sent";
+    }
+
+    // var_dump($postData);
+    die(1);
+}
