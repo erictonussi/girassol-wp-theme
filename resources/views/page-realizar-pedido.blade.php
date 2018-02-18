@@ -111,7 +111,6 @@
               </div>
               <button class="btn btn-lg btn-primary">ENVIAR PEDIDO</button>
             </form>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
           </div>
         </div>
       </div>
