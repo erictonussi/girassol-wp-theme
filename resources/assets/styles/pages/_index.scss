@@ -1,4 +1,8 @@
 .home {
+  .metaslider {
+    overflow: hidden;
+  }
+
   .quem-somos {
     background: url(../images/quem_somos_bg.jpg);
     background-position: center top;
@@ -14,8 +18,16 @@
 
     h2 {
       white-space: nowrap;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       color: #393939;
+    }
+  }
+
+  .contact-form {
+    width: 830px;
+
+    h2 {
+      margin: 75px 0;
     }
   }
 }

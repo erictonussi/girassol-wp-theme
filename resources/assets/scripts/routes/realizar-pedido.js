@@ -59,10 +59,17 @@ export default {
               categorias: $scope.categorias,
               total: $scope.total,
               contato: $scope.contact,
-            });
-              // .then(function (result) {
-              //   // $scope.menu = result.data;
-              // });
+            })
+              .then(function (result) {
+                switch (result.data) {
+                  case 'mail_sent':
+                    alert('Email enviado com sucesso');
+                    break;
+                  case 'mail_not_sent':
+                    alert('Falha ao enviar email');
+                    break;
+                }
+              });
           }
           $http.get('/wp-admin/admin-ajax.php?action=restaurant_menu')
             .then(function (result) {

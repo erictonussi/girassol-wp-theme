@@ -118,7 +118,7 @@ function contact_form () {
     ob_start(); ?>
     <h3>Pedidos | Total: R$<?php echo $postData['total'] ?></h3>
     <?php foreach ($postData['categorias'] as $key => $categoria): ?>
-        <h6><?php echo $categoria['title'] ?></h6>
+        <h4><?php echo $categoria['title'] ?></h4>
         <div>
             <?php foreach ($categoria['pedidos'] as $pedido):
                 if (!$pedido['qtd']) continue;?>
@@ -132,14 +132,24 @@ function contact_form () {
             <?php endforeach ?>
         </div>
     <?php endforeach ?>
+    <h3>Contato</h3>
+    <p>Nome: <?php echo $postData['contato']['name']; ?></p>
+    <p>Telefone: <?php echo $postData['contato']['phone']; ?></p>
+    <p>Endereço: <?php echo $postData['contato']['address']; ?></p>
+    <p>Email: <?php echo $postData['contato']['email']; ?></p>
+    <p>Comentário: <?php echo $postData['contato']['comment']; ?></p>
+    <p>Data do evento: <?php echo $postData['contato']['event_date']; ?></p>
     <?php
-    $to = "asadkhan6164995@gmail.com";
-    $subject = "Donation";
-    $message = ob_get_contents(true);
+    $to = "erictonussi@gmail.com";
+    $subject = "Pedido de orçamento via site";
+    $message = ob_get_contents();
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+
     ob_end_clean();
+    // echo $message;
     // $message = "message message message message message message message ";
 
-    if ( wp_mail($to, $subject, $message) ){
+    if ( wp_mail($to, $subject, $message, $headers) ){
         echo "mail_sent";
     } else {
         echo "mail_not_sent";
@@ -147,4 +157,37 @@ function contact_form () {
 
     // var_dump($postData);
     die(1);
+}
+
+add_action( 'wp_ajax_index_contact_form', 'index_contact_form' );
+add_action( 'wp_ajax_nopriv_index_contact_form', 'index_contact_form' );
+
+function index_contact_form () {
+    ob_start(); ?>
+        <h3>Contato</h3>
+        <p>Nome: <?php echo $_POST['name']; ?></p>
+        <p>Telefone: <?php echo $_POST['phone']; ?></p>
+        <p>Endereço: <?php echo $_POST['address']; ?></p>
+        <p>Email: <?php echo $_POST['email']; ?></p>
+        <p>Mensagem: <?php echo $_POST['message']; ?></p>
+    <?php
+    $to = "erictonussi@gmail.com";
+    $subject = "Contato via site";
+    $message = ob_get_contents();
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+
+    ob_end_clean();
+    // echo $message;
+
+    if ( wp_mail($to, $subject, $message, $headers) ){
+        echo "mail_sent";
+    } else {
+        echo "mail_not_sent";
+    }
+
+    die(1);
+}
+
+function wpse27856_set_content_type(){
+    return "text/html";
 }

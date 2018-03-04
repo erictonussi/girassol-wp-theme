@@ -46,19 +46,34 @@
 @endsection
 
 @section('content')
+  <div id="contato" class="container contact-form">
+    <h2 class="raminho-p text-center">Contato</h2>
+    <div>
+      <h4>Dúvidas? Sugestões? Envie-nos uma mensagem!</h4>
 
-  @include('partials.page-header')
-
-  @if (!have_posts())
-    <div class="alert alert-warning">
-      {{ __('Sorry, no results were found.', 'sage') }}
+      <form id="contactForm" name="contactForm" submit="sendContactForm(); return false;" method="post">
+        <div class="row">
+          <div class="col-7">
+            <input type="text" name="name" class="form-control" placeholder="Nome" minlength="3" required>
+          </div>
+          <div class="col">
+            <input type="text" name="phone" class="form-control" placeholder="Telefone" minlength="14">
+            <!-- <span>Preencha o telefone corretamente</span> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-7">
+            <input type="text" name="address" class="form-control" placeholder="Endereço">
+            <!-- <span>Preencha o endereço corretamente</span> -->
+          </div>
+          <div class="col">
+            <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+            <!-- <span>Preencha o email corretamente</span> -->
+          </div>
+        </div>
+        <textarea name="message" class="form-control" rows="5" placeholder="Mensagem" required></textarea>
+        <button class="btn btn-lg btn-primary">ENVIAR MENSAGEM</button>
+      </form>
     </div>
-    {!! get_search_form(false) !!}
-  @endif
-
-  @while (have_posts()) @php(the_post())
-    @include('partials.content-'.get_post_type())
-  @endwhile
-
-  {!! get_the_posts_navigation() !!}
+  </div>
 @endsection
