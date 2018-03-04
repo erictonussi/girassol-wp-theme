@@ -140,7 +140,7 @@ function contact_form () {
     <p>Comentário: <?php echo $postData['contato']['comment']; ?></p>
     <p>Data do evento: <?php echo $postData['contato']['event_date']; ?></p>
     <?php
-    $to = "erictonussi@gmail.com";
+    $to = array(get_option('admin_email'), 'pedido@girassoldoces.com.br');
     $subject = "Pedido de orçamento via site";
     $message = ob_get_contents();
     $headers = array('Content-Type: text/html; charset=UTF-8');
@@ -171,7 +171,7 @@ function index_contact_form () {
         <p>Email: <?php echo $_POST['email']; ?></p>
         <p>Mensagem: <?php echo $_POST['message']; ?></p>
     <?php
-    $to = array(get_option('admin_email'), 'pedido@girassoldoces.com.br');
+    $to = get_option('admin_email');
     $subject = "Contato via site";
     $message = ob_get_contents();
     $headers = array('Content-Type: text/html; charset=UTF-8');
