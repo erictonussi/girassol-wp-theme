@@ -12,8 +12,12 @@
 
     .section-content {
       // width: 50%;
-      padding-left: 50%;
+      padding-left: 45%;
       padding-top: 70px;
+
+      @include media-breakpoint-up(xl) {
+        padding-left: 50%;
+      }
     }
 
     h2 {

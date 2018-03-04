@@ -171,7 +171,7 @@ function index_contact_form () {
         <p>Email: <?php echo $_POST['email']; ?></p>
         <p>Mensagem: <?php echo $_POST['message']; ?></p>
     <?php
-    $to = "erictonussi@gmail.com";
+    $to = array(get_option('admin_email'), 'pedido@girassoldoces.com.br');
     $subject = "Contato via site";
     $message = ob_get_contents();
     $headers = array('Content-Type: text/html; charset=UTF-8');

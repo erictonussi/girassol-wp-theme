@@ -21,12 +21,12 @@
       @endif
       <ul class="navbar-nav -social">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="https://www.facebook.com/girassolculinariafetiva" target="_blank" class="nav-link">
             <i class="icon-facebook"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="https://www.instagram.com/girassol_culinariafetiva/" target="_blank" class="nav-link">
             <i class="icon-instagram"></i>
           </a>
         </li>

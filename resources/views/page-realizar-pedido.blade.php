@@ -18,11 +18,11 @@
               <label>Valor do pedido</label>
               <p ng-cloak>@{{subtotal=(categorias|map:'pedidos'|flatten:1|map:'total'|sum)|currency}}</p>
             </div>
-            <hr>
+            <!-- <hr>
             <div>
               <label>Descontos</label>
               <p ng-cloak>@{{-0|currency}}</p>
-            </div>
+            </div> -->
             <hr>
             <div>
               <label>Valor total</label>
